@@ -31,7 +31,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      gap: 1rem;
     }
 
     header .branding {
@@ -46,6 +47,7 @@
 
     header h1 {
       font-size: 1.4rem;
+      white-space: nowrap;
     }
 
     nav {
@@ -175,9 +177,18 @@
     }
 
     @media (max-width: 768px) {
-      header, nav {
+      header {
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+
+      nav {
         flex-direction: column;
         text-align: center;
+      }
+
+      nav a {
+        width: 100%;
       }
     }
 
@@ -191,7 +202,11 @@
       }
 
       header h1 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+      }
+
+      header img {
+        max-height: 40px;
       }
 
       nav a {
@@ -231,16 +246,15 @@
   </div>
 
   <main>
-    <!-- Home -->
     <section id="home" class="page active">
       <h2>Selamat Datang di Kwarran Pule</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
         <div style="flex: 1; min-width: 280px;">
-          <p>Website resmi <strong>Kwartir Ranting Pule</strong> sebagai pusat informasi, dokumentasi, dan komunikasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
+          <p>Website resmi <strong>Kwartir Ranting Pule</strong> sebagai pusat informasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
           <ul style="list-style-type: square; padding-left: 1.5rem;">
-            <li>Pembinaan karakter generasi muda</li>
-            <li>Publikasi program dan kegiatan Pramuka</li>
-            <li>Basis data dan informasi Gugus Depan</li>
+            <li>Pembinaan generasi muda</li>
+            <li>Publikasi kegiatan Pramuka</li>
+            <li>Data dan informasi gugus depan</li>
           </ul>
         </div>
         <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -258,28 +272,26 @@
       </div>
     </section>
 
-    <!-- Tentang -->
     <section id="tentang" class="page">
       <h2>Tentang Kwarran Pule</h2>
       <p><strong>Apa itu Kwartir Ranting?</strong></p>
-      <p>Kwartir Ranting (Kwarran) adalah struktur organisasi Gerakan Pramuka di tingkat kecamatan yang bertugas melaksanakan pembinaan, pengembangan, serta pengawasan kegiatan kepramukaan di Gugus Depan.</p>
-      <p><strong>Kwarran Pule</strong> merupakan bagian dari Kwartir Cabang Trenggalek yang bertanggung jawab membina Gugus Depan di wilayah Kecamatan Pule. Kami mendukung pelaksanaan kegiatan Pramuka dari tingkat Siaga hingga Penegak.</p>
+      <p>Kwartir Ranting (Kwarran) adalah satuan organisasi dari Gerakan Pramuka di tingkat kecamatan yang bertugas melaksanakan pembinaan, pengembangan, dan pengawasan kegiatan kepramukaan di gugus depan.</p>
+      <p><strong>Kwarran Pule</strong> merupakan bagian dari Kwartir Cabang Trenggalek yang membina gugus depan di wilayah Kecamatan Pule. Kami mendampingi semua kegiatan Pramuka mulai dari siaga hingga penegak.</p>
 
       <h3>Visi</h3>
       <ul>
-        <li>Mewujudkan Gerakan Pramuka sebagai wadah pembentukan karakter generasi muda yang beriman, bertakwa, dan berdaya saing.</li>
+        <li>Mewujudkan Gerakan Pramuka sebagai wadah pembentukan karakter generasi muda yang beriman, bertaqwa, dan berdaya saing.</li>
       </ul>
 
       <h3>Misi</h3>
       <ul>
-        <li>Meningkatkan kualitas pembina dan peserta didik melalui pelatihan serta kegiatan berkelanjutan.</li>
-        <li>Menjalin kemitraan strategis dengan berbagai pihak untuk mendukung kegiatan kepramukaan.</li>
-        <li>Mengaktifkan peran Gugus Depan dalam kegiatan sosial, pendidikan, dan pelestarian lingkungan.</li>
+        <li>Meningkatkan kualitas pembina dan peserta didik melalui pelatihan dan kegiatan yang berkelanjutan.</li>
+        <li>Menjalin kerja sama dengan berbagai pihak dalam pengembangan kegiatan kepramukaan.</li>
+        <li>Mengaktifkan peran gugus depan dalam kegiatan sosial, pendidikan, dan lingkungan.</li>
         <li>Mendorong terciptanya Pramuka yang kreatif, inovatif, dan peduli terhadap masyarakat.</li>
       </ul>
     </section>
 
-    <!-- Berita -->
     <section id="berita" class="page">
       <h2>Berita & Kegiatan</h2>
       <div class="berita-grid">
@@ -287,7 +299,7 @@
           <img src="foto bersama.jpg" alt="Pelatihan DKR">
           <div class="content">
             <strong>📅 18 April 2025</strong>
-            <p>Dewan Kerja Ranting Pule mengikuti kegiatan Sidparcab Trenggalek Tahun 2025 bersama delegasi dari Kwartir Cabang.</p>
+            <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggalek Tahun 2025.</p>
             <a href="berita1.html">Baca Selengkapnya</a>
           </div>
         </div>
@@ -295,19 +307,18 @@
           <img src="pw3.jpg" alt="LT 1 SD">
           <div class="content">
             <strong>📅 12 Juni 2025</strong>
-            <p>Tim dari Kwarda Jawa Timur dan Kwarcab Trenggalek melakukan survei lokasi Rumah Tidak Layak Huni (RTL) untuk program pemugaran.</p>
+            <p>Survei Pemugaran RTL Kwarda Jatim & Kwarcab Trenggalek</p>
             <a href="berita2.html">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kontak -->
     <section id="kontak" class="page">
       <h2>Hubungi Kami</h2>
-      <p>🏠 <strong>Alamat:</strong> Sekretariat Kwarran Pule, Jl. Raya Pule No. 10, Trenggalek, Jawa Timur</p>
+      <p>🏠 <strong>Alamat:</strong> Sekretariat Kwarran Pule, Jl. Raya Pule No. 10, Trenggalek</p>
       <p>📱 <strong>Telepon / WhatsApp:</strong> 
-        <a class="whatsapp-link" href="https://wa.me/6281234567890" target="_blank">
+        <a class="whatsapp-link" href="https://wa.me/6282244110365" target="_blank">
           Klik untuk Chat via WhatsApp
         </a>
       </p>
