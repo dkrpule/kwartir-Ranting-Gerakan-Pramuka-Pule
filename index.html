@@ -31,11 +31,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      flex-wrap: nowrap;
-      gap: 1rem;
     }
 
-    header .branding {
+    .branding {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -50,23 +48,54 @@
       white-space: nowrap;
     }
 
+    /* Tombol menu */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: var(--putih);
+      cursor: pointer;
+    }
+
     nav {
       background: var(--gelap);
+    }
+
+    nav ul {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      list-style: none;
     }
 
-    nav a {
+    nav li a {
       color: var(--putih);
       text-decoration: none;
       padding: 0.8rem 1.2rem;
-      display: inline-block;
+      display: block;
       transition: 0.3s;
     }
 
-    nav a:hover {
+    nav li a:hover {
       background: #3E2723;
+    }
+
+    /* Tampilan mobile */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
     }
 
     .hero {
@@ -98,7 +127,6 @@
       border-radius: 10px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
-      animation: fade 0.5s ease-in-out;
     }
 
     .page.active {
@@ -110,11 +138,6 @@
       border-left: 6px solid var(--gelap);
       padding-left: 0.5rem;
       margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
     }
 
     ul {
@@ -161,66 +184,13 @@
       text-decoration: underline;
     }
 
-    a.whatsapp-link {
-      color: #4E342E;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a.whatsapp-link:hover {
-      text-decoration: underline;
-    }
-
-    @keyframes fade {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-wrap: nowrap;
-        flex-direction: row;
-      }
-
-      nav {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav a {
-        width: 100%;
-      }
-    }
-
     @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      header h1 {
-        font-size: 1rem;
-      }
-
-      header img {
-        max-height: 40px;
-      }
-
-      nav a {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.9rem;
-      }
-
-      .berita-item img {
-        height: 150px;
-      }
-
-      .berita-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero h2 { font-size: 1.5rem; }
+      .hero p { font-size: 1rem; }
+      header h1 { font-size: 1rem; }
+      header img { max-height: 40px; }
+      .berita-item img { height: 150px; }
+      .berita-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -231,13 +201,16 @@
       <img src="IMG_20250502_070929_191-removebg-preview.png" alt="Logo Kwarran Pule">
       <h1>Kwarran Pule</h1>
     </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
   <nav>
-    <a href="#" onclick="showPage('home')">Home</a>
-    <a href="#" onclick="showPage('tentang')">Tentang</a>
-    <a href="#" onclick="showPage('berita')">Berita</a>
-    <a href="#" onclick="showPage('kontak')">Kontak</a>
+    <ul id="menu">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('tentang')">Tentang</a></li>
+      <li><a href="#" onclick="showPage('berita')">Berita</a></li>
+      <li><a href="#" onclick="showPage('kontak')">Kontak</a></li>
+    </ul>
   </nav>
 
   <div class="hero">
@@ -248,48 +221,12 @@
   <main>
     <section id="home" class="page active">
       <h2>Selamat Datang di Kwarran Pule</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
-        <div style="flex: 1; min-width: 280px;">
-          <p>Website resmi <strong>Kwartir Ranting Pule</strong> sebagai pusat informasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
-          <ul style="list-style-type: square; padding-left: 1.5rem;">
-            <li>Pembinaan generasi muda</li>
-            <li>Publikasi kegiatan Pramuka</li>
-            <li>Data dan informasi gugus depan</li>
-          </ul>
-        </div>
-        <div style="flex: 1; min-width: 280px; text-align: center;">
-          <img src="foto bersama.jpg" alt="Kegiatan Pramuka Pule" style="width: 100%; border-radius: 10px;">
-        </div>
-      </div>
-
-      <div style="margin-top: 2rem;">
-        <h3>Galeri Kegiatan</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-          <img src="gambar1.jpeg" alt="Kegiatan 1" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar2.jpg" alt="Kegiatan 2" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar3.jpeg" alt="Kegiatan 3" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-        </div>
-      </div>
+      <p>Website resmi Kwartir Ranting Pule sebagai pusat informasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
     </section>
 
     <section id="tentang" class="page">
       <h2>Tentang Kwarran Pule</h2>
-      <p><strong>Apa itu Kwartir Ranting?</strong></p>
-      <p>Kwartir Ranting (Kwarran) adalah satuan organisasi dari Gerakan Pramuka di tingkat kecamatan yang bertugas melaksanakan pembinaan, pengembangan, dan pengawasan kegiatan kepramukaan di gugus depan.</p>
-      <p><strong>Kwarran Pule</strong> merupakan bagian dari Kwartir Cabang Trenggalek yang membina gugus depan di wilayah Kecamatan Pule. Kami mendampingi semua kegiatan Pramuka mulai dari siaga hingga penegak.</p>
-
-      <h3>Visi</h3>
-      <ul>
-        <li>Mewujudkan Gerakan Pramuka sebagai wadah pembentukan karakter generasi muda yang beriman, bertaqwa, dan berdaya saing.</li>
-      </ul>
-
-      <h3>Misi</h3>
-      <ul>
-        <li>Meningkatkan kualitas pembina dan peserta didik melalui pelatihan dan kegiatan yang berkelanjutan.</li>
-        <li>Menjalin kerja sama dengan berbagai pihak dalam pengembangan kegiatan kepramukaan.</li>
-        <li>Mengaktifkan peran gugus depan dalam kegiatan sosial, pendidikan, dan lingkungan.</li>
-        <li>Mendorong terciptanya Pramuka yang kreatif, inovatif, dan peduli terhadap masyarakat.</li>
-      </ul>
+      <p>Kwartir Ranting (Kwarran) adalah satuan organisasi dari Gerakan Pramuka di tingkat kecamatan...</p>
     </section>
 
     <section id="berita" class="page">
@@ -300,15 +237,6 @@
           <div class="content">
             <strong>📅 18 April 2025</strong>
             <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggalek Tahun 2025.</p>
-            <a href="berita1.html">Baca Selengkapnya</a>
-          </div>
-        </div>
-        <div class="berita-item">
-          <img src="pw3.jpg" alt="LT 1 SD">
-          <div class="content">
-            <strong>📅 12 Juni 2025</strong>
-            <p>Survei Pemugaran RTL Kwarda Jatim & Kwarcab Trenggalek</p>
-            <a href="berita2.html">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -316,18 +244,12 @@
 
     <section id="kontak" class="page">
       <h2>Hubungi Kami</h2>
-      <p>🏠 <strong>Alamat:</strong> Sekretariat Kwarran Pule, Jl. Raya Pule No. 10, Trenggalek</p>
-      <p>📱 <strong>Telepon / WhatsApp:</strong> 
-        <a class="whatsapp-link" href="https://wa.me/6282244110365" target="_blank">
-          Klik untuk Chat via WhatsApp
-        </a>
-      </p>
-      <p>📧 <strong>Email:</strong> <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a></p>
+      <p>📱 <strong>Telepon / WA:</strong> <a href="https://wa.me/6281234567890">Klik untuk WhatsApp</a></p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh Tim IT Pramuka Pule
+    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh Tim IT Pramuka Pule.
   </footer>
 
   <script>
@@ -337,6 +259,11 @@
       });
       document.getElementById(id).classList.add('active');
       window.scrollTo(0, 0);
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
     }
   </script>
 
