@@ -1,345 +1,260 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kwarran Pule</title>
-  <style>
-    :root {
-      --coklat: #A1887F;
-      --krem: #FBE9E7;
-      --gelap: #4E342E;
-      --putih: #ffffff;
-    }
+<!-- [Kode HTML penuh di atas tetap sama hingga bagian CSS, lalu ganti bagian CSS dengan versi di bawah] -->
+<style>
+  :root {
+    --coklat: #A1887F;
+    --krem: #FBE9E7;
+    --gelap: #4E342E;
+    --putih: #ffffff;
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--krem);
-      color: var(--gelap);
-    }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--krem);
+    color: var(--gelap);
+  }
 
+  header {
+    background: var(--coklat);
+    color: var(--putih);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .branding {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  header img {
+    max-height: 40px;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  #menu-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+
+  nav {
+    background: var(--gelap);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: 0.3s;
+  }
+
+  nav a {
+    color: var(--putih);
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    display: inline-block;
+    font-size: 0.95rem;
+  }
+
+  nav a:hover {
+    background: #3E2723;
+  }
+
+  .hero {
+    background: linear-gradient(to right, var(--coklat), #D7CCC8);
+    padding: 2rem 1rem;
+    color: var(--putih);
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .page {
+    display: none;
+    background: var(--putih);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    animation: fade 0.5s ease-in-out;
+  }
+
+  .page.active {
+    display: block;
+  }
+
+  h2 {
+    color: var(--coklat);
+    border-left: 6px solid var(--gelap);
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    background: var(--gelap);
+    color: var(--putih);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .berita-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  .berita-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .berita-item .content {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .berita-item .content a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--gelap);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  a.whatsapp-link {
+    color: #4E342E;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  a.whatsapp-link:hover {
+    text-decoration: underline;
+  }
+
+  @keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @media (max-width: 768px) {
     header {
-      background: var(--coklat);
-      color: var(--putih);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
-
-    .branding {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    header img {
-      max-height: 50px;
+      padding: 1rem;
     }
 
     header h1 {
-      font-size: 1.4rem;
+      font-size: 1rem;
     }
 
     #menu-toggle {
-      font-size: 1.6rem;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      display: none;
-    }
-
-    nav {
-      background: var(--gelap);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      transition: 0.3s;
-    }
-
-    nav a {
-      color: var(--putih);
-      text-decoration: none;
-      padding: 0.8rem 1.2rem;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #3E2723;
-    }
-
-    .hero {
-      background: linear-gradient(to right, var(--coklat), #D7CCC8);
-      padding: 3rem 1rem;
-      color: var(--putih);
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .page {
-      display: none;
-      background: var(--putih);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      animation: fade 0.5s ease-in-out;
-    }
-
-    .page.active {
       display: block;
     }
 
-    h2 {
-      color: var(--coklat);
-      border-left: 6px solid var(--gelap);
-      padding-left: 0.5rem;
-      margin-bottom: 1rem;
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none;
     }
 
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
+    nav.show {
+      display: flex;
     }
 
-    ul {
-      margin-left: 1.2rem;
-      margin-bottom: 1rem;
+    nav a {
+      width: 100%;
+      text-align: left;
+      padding-left: 1.5rem;
     }
 
-    footer {
-      background: var(--gelap);
-      color: var(--putih);
-      text-align: center;
-      padding: 1rem;
+    .branding {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .hero h2 {
+      font-size: 1.4rem;
+    }
+
+    .hero p {
       font-size: 0.9rem;
     }
 
-    .berita-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .berita-item {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
-    .berita-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .berita-item .content {
+    .page {
       padding: 1rem;
     }
 
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p, ul li {
+      font-size: 0.85rem;
+    }
+
+    .berita-item img {
+      height: 140px;
+    }
+
+    .berita-item .content {
+      font-size: 0.85rem;
+    }
+
     .berita-item .content a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: var(--gelap);
-      font-weight: bold;
-      text-decoration: underline;
+      font-size: 0.85rem;
     }
-
-    a.whatsapp-link {
-      color: #4E342E;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a.whatsapp-link:hover {
-      text-decoration: underline;
-    }
-
-    @keyframes fade {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @media (max-width: 768px) {
-      #menu-toggle {
-        display: block;
-        margin-left: auto;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        display: none;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: left;
-        padding-left: 2rem;
-      }
-
-      .branding {
-        width: 100%;
-        justify-content: space-between;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="branding">
-      <img src="IMG_20250502_070929_191-removebg-preview.png" alt="Logo Kwarran Pule">
-      <h1>Kwarran Pule</h1>
-    </div>
-    <button id="menu-toggle" aria-label="Toggle Menu">☰</button>
-  </header>
-
-  <nav id="navbar">
-    <a href="#" onclick="showPage('home')">Home</a>
-    <a href="#" onclick="showPage('tentang')">Tentang</a>
-    <a href="#" onclick="showPage('berita')">Berita</a>
-    <a href="#" onclick="showPage('kontak')">Kontak</a>
-  </nav>
-
-  <div class="hero">
-    <h2>Gerakan Pramuka Pule</h2>
-    <p>Membentuk Generasi Muda yang Berkarakter dan Mandiri</p>
-  </div>
-
-  <main>
-    <!-- Home -->
-    <section id="home" class="page active">
-      <h2>Selamat Datang di Kwarran Pule</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
-        <div style="flex: 1; min-width: 280px;">
-          <p>Website resmi <strong>Kwartir Ranting Pule</strong> sebagai pusat informasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
-          <ul style="list-style-type: square; padding-left: 1.5rem;">
-            <li>Pembinaan generasi muda</li>
-            <li>Publikasi kegiatan Pramuka</li>
-            <li>Data dan informasi gugus depan</li>
-          </ul>
-        </div>
-        <div style="flex: 1; min-width: 280px; text-align: center;">
-          <img src="foto bersama.jpg" alt="Kegiatan Pramuka Pule" style="width: 100%; border-radius: 10px;">
-        </div>
-      </div>
-
-      <div style="margin-top: 2rem;">
-        <h3>Galeri Kegiatan</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-          <img src="gambar1.jpeg" alt="Kegiatan 1" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar2.jpg" alt="Kegiatan 2" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar3.jpeg" alt="Kegiatan 3" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-        </div>
-      </div>
-    </section>
-
-    <!-- Tentang -->
-    <section id="tentang" class="page">
-      <h2>Tentang Kwarran Pule</h2>
-      <p><strong>Apa itu Kwartir Ranting?</strong></p>
-      <p>Kwartir Ranting (Kwarran) adalah satuan organisasi dari Gerakan Pramuka di tingkat kecamatan yang bertugas melaksanakan pembinaan, pengembangan, dan pengawasan kegiatan kepramukaan di gugus depan.</p>
-      <p><strong>Kwarran Pule</strong> merupakan bagian dari Kwartir Cabang Trenggalek yang membina gugus depan di wilayah Kecamatan Pule. Kami mendampingi semua kegiatan Pramuka mulai dari siaga hingga penegak.</p>
-      <h3>Visi</h3>
-      <ul>
-        <li>Mewujudkan Gerakan Pramuka sebagai wadah pembentukan karakter generasi muda yang beriman, bertaqwa, dan berdaya saing.</li>
-      </ul>
-      <h3>Misi</h3>
-      <ul>
-        <li>Meningkatkan kualitas pembina dan peserta didik melalui pelatihan dan kegiatan yang berkelanjutan.</li>
-        <li>Menjalin kerja sama dengan berbagai pihak dalam pengembangan kegiatan kepramukaan.</li>
-        <li>Mengaktifkan peran gugus depan dalam kegiatan sosial, pendidikan, dan lingkungan.</li>
-        <li>Mendorong terciptanya Pramuka yang kreatif, inovatif, dan peduli terhadap masyarakat.</li>
-      </ul>
-    </section>
-
-    <!-- Berita -->
-    <section id="berita" class="page">
-      <h2>Berita & Kegiatan</h2>
-      <div class="berita-grid">
-        <div class="berita-item">
-          <img src="foto bersama.jpg" alt="Pelatihan DKR">
-          <div class="content">
-            <strong>📅 18 April 2025</strong>
-            <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggalek Tahun 2025</p>
-            <a href="berita1.html">Baca Selengkapnya</a>
-          </div>
-        </div>
-        <div class="berita-item">
-          <img src="pw3.jpg" alt="Survei RTL">
-          <div class="content">
-            <strong>📅 12 Juni 2025</strong>
-            <p>Survei Pemugaran RTL oleh Kwarda Jatim & Kwarcab Trenggalek di Pule</p>
-            <a href="berita2.html">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kontak -->
-    <section id="kontak" class="page">
-      <h2>Hubungi Kami</h2>
-      <p>🏠 <strong>Alamat:</strong> Sekretariat Kwarran Pule, Jl. Raya Pule No. 10, Trenggalek</p>
-      <p>📱 <strong>Telepon / WhatsApp:</strong> 
-        <a class="whatsapp-link" href="https://wa.me/6281234567890" target="_blank">
-          Klik untuk Chat via WhatsApp
-        </a>
-      </p>
-      <p>📧 <strong>Email:</strong> <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a></p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh Tim IT Pramuka Pule.
-  </footer>
-
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-      window.scrollTo(0, 0);
-    }
-
-    // Toggle menu untuk HP
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('show');
-    });
-  </script>
-
-</body>
-</html>
+  }
+</style>
