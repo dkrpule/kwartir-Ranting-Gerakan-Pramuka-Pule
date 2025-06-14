@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dewan Kerja Pule Hadiri Sidparcab</title>
   <style>
+    :root {
+      --coklat: #A1887F;
+      --krem: #FBE9E7;
+      --gelap: #4E342E;
+      --putih: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 1rem;
-      background: #fdfdfd;
-      color: #333;
+      background: var(--krem);
+      color: var(--gelap);
+    }
+
+    header {
+      background: var(--coklat);
+      color: var(--putih);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    header .branding {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header img {
+      max-height: 50px;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
     }
 
     .container {
       max-width: 800px;
-      margin: auto;
+      margin: 2rem auto;
+      background: var(--putih);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
 
     h1 {
-      color: #4E342E;
+      color: var(--gelap);
+      margin-bottom: 1rem;
     }
 
     img {
@@ -28,30 +68,64 @@
       margin: 1rem 0;
     }
 
-    a {
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    a.back-link {
       display: inline-block;
       margin-top: 1rem;
       text-decoration: none;
-      color: #A1887F;
+      color: var(--gelap);
       font-weight: bold;
     }
 
-    a:hover {
+    a.back-link:hover {
       text-decoration: underline;
+    }
+
+    footer {
+      background: var(--gelap);
+      color: var(--putih);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header, .container {
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <div class="branding">
+      <img src="IMG_20250502_070929_191-removebg-preview.png" alt="Logo Kwarran Pule">
+      <h1>Kwarran Pule</h1>
+    </div>
+  </header>
+
   <div class="container">
     <h1>Dewan Kerja Ranting Pule Hadiri Sidparcab 2025</h1>
     <p><strong>Tanggal:</strong> 18 April 2025</p>
     <img src="foto bersama.jpg" alt="Foto Kegiatan Sidparcab">
-
     <p>Dewan Kerja Ranting (DKR) Pule turut hadir dalam kegiatan Sidang Paripurna Cabang (Sidparcab) Gerakan Pramuka Kwarcab Trenggalek Tahun 2025. Kegiatan ini berlangsung di Gedung Kwarcab Trenggalek dan dihadiri oleh seluruh DKR se-Kabupaten Trenggalek.</p>
-
     <p>Dalam Sidparcab ini, DKR Pule menyampaikan laporan kegiatan tahunan, serta turut memberikan saran dan rekomendasi untuk program kerja DKC (Dewan Kerja Cabang) ke depan. Kegiatan berlangsung lancar dan penuh semangat kepramukaan.</p>
-
-    <a href="index.html" style="color:#4E342E;">← Kembali ke Berita</a>
+    <a href="index.html" class="back-link">← Kembali ke Berita</a>
   </div>
+
+  <footer>
+    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh tim IT Pramuka Pule.
+  </footer>
+
 </body>
 </html>
