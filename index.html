@@ -180,6 +180,33 @@
         text-align: center;
       }
     }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .berita-item img {
+        height: 150px;
+      }
+
+      .berita-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -224,9 +251,9 @@
       <div style="margin-top: 2rem;">
         <h3>Galeri Kegiatan</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-          <img src="gambar1.jpeg" alt="Kegiatan 1" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar2.jpg" alt="Kegiatan 2" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
-          <img src="gambar3.jpeg" alt="Kegiatan 3" style="width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
+          <img src="gambar1.jpeg" alt="Kegiatan 1" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
+          <img src="gambar2.jpg" alt="Kegiatan 2" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
+          <img src="gambar3.jpeg" alt="Kegiatan 3" style="width: 100%; max-width: 200px; height: 130px; object-fit: cover; border-radius: 8px;">
         </div>
       </div>
     </section>
@@ -260,7 +287,7 @@
           <img src="foto bersama.jpg" alt="Pelatihan DKR">
           <div class="content">
             <strong>📅 18 April 2025</strong>
-            <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggale Tahun 2025.</p>
+            <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggalek Tahun 2025.</p>
             <a href="berita1.html">Baca Selengkapnya</a>
           </div>
         </div>
@@ -268,7 +295,7 @@
           <img src="pw3.jpg" alt="LT 1 SD">
           <div class="content">
             <strong>📅 12 Juni 2025</strong>
-            <p>Survei Pemugaran RTL Kwartir Daerah Gerakan Pramuka Jawa Timur Beserta Kwartir Cabang Gerakan Pramuka Trenggalek</p>
+            <p>Survei Pemugaran RTL Kwarda Jatim & Kwarcab Trenggalek</p>
             <a href="berita2.html">Baca Selengkapnya</a>
           </div>
         </div>
@@ -289,7 +316,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Kwartir Ranting Pule. .di kelola oleh tim IT Pramuka Pule
+    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh Tim IT Pramuka Pule
   </footer>
 
   <script>
