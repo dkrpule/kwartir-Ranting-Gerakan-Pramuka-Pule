@@ -2,131 +2,281 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Detail Berita - Kwarran Pule</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kwarran Pule</title>
   <style>
+    :root {
+      --primary: #6D4C41;
+      --secondary: #EFEBE9;
+      --accent: #D7CCC8;
+      --white: #ffffff;
+      --dark: #3E2723;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
+
     body {
-      background-color: #f4f6f8;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--secondary);
+      color: var(--dark);
+      line-height: 1.6;
     }
+
     header {
-      background: #003366;
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-    }
-    header .logo {
-      max-height: 60px;
-      margin-bottom: 0.5rem;
-    }
-    nav {
-      background-color: #004080;
-    }
-    nav ul {
-      list-style: none;
+      background: var(--primary);
+      color: var(--white);
       display: flex;
-      justify-content: center;
-      padding: 1rem;
-      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.4rem 0.7rem;
-      border-radius: 4px;
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
-    nav a.active, nav a:hover {
-      background-color: #0066cc;
+
+    .branding img {
+      height: 40px;
     }
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
+
+    .branding h1 {
+      font-size: 1.2rem;
     }
-    .detail-berita h2 {
+
+    .menu-toggle {
+      display: none;
       font-size: 1.8rem;
-      color: #002244;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    nav {
+      background: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      display: block;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero {
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    .tanggal {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 1.5rem;
+
+    .hero p {
+      font-size: 1.1rem;
     }
-    .detail-berita img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
-    .detail-berita p {
-      line-height: 1.7;
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
+
+    .page {
+      display: none;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
     }
+
+    .page.active {
+      display: block;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--primary);
+      padding-left: 0.5rem;
+      color: var(--primary);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
     footer {
-      background-color: #002244;
-      color: white;
+      background: var(--primary);
+      color: var(--white);
       text-align: center;
-      padding: 1.5rem 1rem;
-      margin-top: 3rem;
+      padding: 1rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
-    footer a {
-      color: #66ccff;
-      text-decoration: none;
+
+    .berita-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .berita-item {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .berita-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .berita-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .berita-item .content {
+      padding: 1rem;
+    }
+
+    .berita-item .content a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        background: var(--primary);
+        display: none;
+        margin: 0;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 { font-size: 1.5rem; }
+      .hero p { font-size: 1rem; }
+      .branding h1 { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="img/logo.png" alt="Logo Kwarran Pule" class="logo" />
-    <h1>Kwartir Ranting Gerakan Pramuka Pule</h1>
+    <div class="branding">
+      <img src="IMG_20250502_070929_191-removebg-preview.png" alt="Logo Kwarran Pule">
+      <h1>Kwarran Pule</h1>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
   <nav>
-    <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="kegiatan.html">Kegiatan</a></li>
-      <li><a href="berita.html" class="active">Berita</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
+    <ul id="menu">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('tentang')">Tentang</a></li>
+      <li><a href="#" onclick="showPage('berita')">Berita</a></li>
+      <li><a href="#" onclick="showPage('kontak')">Kontak</a></li>
     </ul>
   </nav>
 
+  <div class="hero">
+    <h2>Gerakan Pramuka Pule</h2>
+    <p>Membentuk Generasi Muda yang Berkarakter dan Mandiri</p>
+  </div>
+
   <main>
-    <article class="detail-berita">
-      <h2>Kwarran Pule Resmi Lantik 670 Pramuka Siaga Garuda</h2>
-      <p class="tanggal">2 Desember 2024</p>
-      <img src="img/Baner.JPG" alt="Pelantikan Pramuka Siaga Garuda" />
-      <p>
-        Pada tanggal 2 Desember 2024, Kwartir Ranting Pule resmi melantik 670 Pramuka Siaga Garuda. Pelantikan dilakukan langsung oleh Ka Harian Kwarcab Trenggalek dalam acara yang berlangsung penuh khidmat dan semangat.  
-      </p>
-      <p>
-        Acara dihadiri oleh seluruh pengurus Kwarran dan anggota Pramuka dari berbagai gugus depan di wilayah Pule. Pelantikan ini merupakan wujud komitmen dalam meningkatkan kualitas pembinaan generasi muda di bidang kepramukaan.
-      </p>
-      <p>
-        Para peserta yang dilantik telah melalui berbagai tahapan seleksi dan pelatihan sehingga siap melaksanakan tugas dan kewajiban sebagai Pramuka Siaga Garuda. Kegiatan ini diharapkan dapat semakin memotivasi semangat juang dan kecintaan mereka terhadap organisasi Pramuka.
-      </p>
-    </article>
+    <section id="home" class="page active">
+      <h2>Selamat Datang di Kwarran Pule</h2>
+      <p>Website resmi Kwartir Ranting Pule sebagai pusat informasi kegiatan kepramukaan di wilayah Kecamatan Pule.</p>
+    </section>
+
+    <section id="tentang" class="page">
+      <h2>Tentang Kwarran Pule</h2>
+      <p>Kwartir Ranting (Kwarran) adalah satuan organisasi dari Gerakan Pramuka di tingkat kecamatan yang membina gugus depan dan mendukung program kepramukaan.</p>
+    </section>
+
+    <section id="berita" class="page">
+      <h2>Berita & Kegiatan</h2>
+      <div class="berita-grid">
+        <div class="berita-item">
+          <img src="foto bersama.jpg" alt="Pelatihan DKR">
+          <div class="content">
+            <strong>📅 18 April 2025</strong>
+            <p>Dewan Kerja Ranting Pule Hadiri Sidparcab Trenggalek Tahun 2025.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="page">
+      <h2>Hubungi Kami</h2>
+      <p>📱 <strong>Telepon / WA:</strong> <a href="https://wa.me/6281234567890" target="_blank">Klik untuk WhatsApp</a></p>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Kwartir Ranting Gerakan Pramuka Pule</p>
-    <p>Alamat: Pule, Kabupaten Trenggalek - Jawa Timur</p>
-    <p>Kontak: <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a> | 
-      WA: <a href="https://wa.me/62244110365" target="_blank">082-244-110-365</a>
-    </p>
+    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh Tim IT Pramuka Pule.
   </footer>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
