@@ -3,69 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dewan Kerja Pule Hadiri Sidparcab</title>
+  <title>Berita - Pelatihan DKR</title>
   <style>
-    :root {
-      --coklat: #A1887F;
-      --krem: #FBE9E7;
-      --gelap: #4E342E;
-      --putih: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: var(--krem);
-      color: var(--gelap);
+      background: #FBE9E7;
+      margin: 0;
+      padding: 0;
+      color: #4E342E;
     }
 
     header {
-      background: var(--coklat);
-      color: var(--putih);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #A1887F;
+      color: white;
       padding: 1rem 2rem;
-      flex-wrap: wrap;
+      text-align: center;
     }
 
-    header .branding {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    header img {
-      max-height: 50px;
-    }
-
-    header h1 {
-      font-size: 1.4rem;
-    }
-
-    .container {
-      max-width: 800px;
+    main {
+      max-width: 900px;
       margin: 2rem auto;
-      background: var(--putih);
+      background: white;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     h1 {
-      color: var(--gelap);
-      margin-bottom: 1rem;
+      color: #6D4C41;
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #8D6E63;
+      margin-bottom: 1.5rem;
     }
 
     img {
       width: 100%;
       border-radius: 10px;
-      margin: 1rem 0;
+      margin-bottom: 1.5rem;
     }
 
     p {
@@ -73,58 +51,54 @@
       margin-bottom: 1rem;
     }
 
-    a.back-link {
+    a.kembali {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 2rem;
+      color: #4E342E;
       text-decoration: none;
-      color: var(--gelap);
       font-weight: bold;
     }
 
-    a.back-link:hover {
+    a.kembali:hover {
       text-decoration: underline;
     }
 
     footer {
-      background: var(--gelap);
-      color: var(--putih);
+      background: #4E342E;
+      color: white;
       text-align: center;
       padding: 1rem;
-      font-size: 0.9rem;
       margin-top: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      header, .container {
-        padding: 1rem;
-      }
-
-      header h1 {
-        font-size: 1.2rem;
-      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="branding">
-      <img src="IMG_20250502_070929_191-removebg-preview.png" alt="Logo Kwarran Pule">
-      <h1>Kwarran Pule</h1>
-    </div>
+    <h1>DKR Pule Hadiri Sidparcab Trenggalek</h1>
   </header>
 
-  <div class="container">
-    <h1>Dewan Kerja Ranting Pule Hadiri Sidparcab 2025</h1>
-    <p><strong>Tanggal:</strong> 18 April 2025</p>
-    <img src="foto bersama.jpg" alt="Foto Kegiatan Sidparcab">
-    <p>Dewan Kerja Ranting (DKR) Pule turut hadir dalam kegiatan Sidang Paripurna Cabang (Sidparcab) Gerakan Pramuka Kwarcab Trenggalek Tahun 2025. Kegiatan ini berlangsung di Gedung Kwarcab Trenggalek dan dihadiri oleh seluruh DKR se-Kabupaten Trenggalek.</p>
-    <p>Dalam Sidparcab ini, DKR Pule menyampaikan laporan kegiatan tahunan, serta turut memberikan saran dan rekomendasi untuk program kerja DKC (Dewan Kerja Cabang) ke depan. Kegiatan berlangsung lancar dan penuh semangat kepramukaan.</p>
-    <a href="index.html" class="back-link">← Kembali ke Berita</a>
-  </div>
+  <main>
+    <div class="meta">Dipublikasikan pada 12 Juni 2025</div>
+    <img src="foto bersama.jpg" alt="Pelatihan DKR">
+    <p>
+  Pada tanggal 18 April 2025, Dewan Kerja Ranting (DKR) Pule menghadiri kegiatan Sidang Paripurna Cabang (Sidparcab) yang diselenggarakan oleh Kwartir Cabang Trenggalek bertempat di Taman Condrogeni.
+  Kegiatan ini diikuti oleh perwakilan Dewan Kerja Ranting se-Kabupaten Trenggalek.
+</p>
+<p>
+  Kehadiran DKR Pule dalam Sidparcab ini bertujuan untuk menyampaikan laporan kegiatan, mengevaluasi program kerja, serta menyusun rencana strategis DKR di tingkat cabang.
+  Sidparcab menjadi momen penting dalam konsolidasi dan penguatan struktur organisasi Pramuka Penegak dan Pandega.
+</p>
+<p>
+  Dalam forum tersebut, DKR Pule aktif memberikan masukan serta menjalin komunikasi dengan DKR lainnya, guna mendorong terciptanya sinergi program yang lebih berdampak di masing-masing ranting. 
+  Acara ditutup dengan penetapan rekomendasi dan hasil sidang sebagai dasar kebijakan kepramukaan di tingkat cabang.
+</p>
+
+    <a class="kembali" href="index.html" onclick="history.back(); return false;">&laquo; Kembali ke Berita</a>
+  </main>
 
   <footer>
-    &copy; 2025 Kwartir Ranting Pule. Dikelola oleh tim IT Pramuka Pule.
+    &copy; 2025 Kwartir Ranting Pule
   </footer>
 
 </body>
